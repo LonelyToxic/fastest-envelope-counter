@@ -1,0 +1,97 @@
+import { BridgeMessage } from "../../core/bridge";
+import { WidgetEvents, WidgetParams } from "../../core/widget";
+import { RedirectPayload } from "../../utils/url";
+import { OAuthName } from "../oauthList";
+import { OneTapInternalEvents } from './events';
+export interface OneTapStyles {
+    /**
+     * Ширина кнопки
+     */
+    width?: number;
+    /**
+     * Высота кнопки
+     */
+    height?: 32 | 34 | 36 | 38 | 40 | 42 | 44 | 46 | 48 | 50 | 52 | 54 | 56;
+    /**
+     * Скругление кнопки
+     */
+    borderRadius?: number;
+}
+export declare enum OneTapSkin {
+    Primary = "primary",
+    Secondary = "secondary"
+}
+export declare enum OneTapContentId {
+    /**
+     * Войти
+     */
+    SIGN_IN = 0,
+    /**
+     * Записаться
+     */
+    SIGN_UP = 1,
+    /**
+     * Получить
+     */
+    GET = 2,
+    /**
+     * Открыть
+     */
+    OPEN = 3,
+    /**
+     * Рассчитать
+     */
+    CALCULATE = 4,
+    /**
+     * Заказать
+     */
+    ORDER = 5,
+    /**
+     * Оформить заказ
+     */
+    PLACE_ORDER = 6,
+    /**
+     * Оставить заявку
+     */
+    SUBMIT_REQUEST = 7,
+    /**
+     * Участвовать
+     */
+    PARTICIPATE = 8
+}
+export interface OneTapParams extends WidgetParams {
+    /**
+     * Отображение кнопки входа другим способом
+     */
+    showAlternativeLogin?: boolean | 0 | 1;
+    /**
+     * Настройки внешнего вида
+     */
+    styles?: OneTapStyles;
+    /**
+     * Стиль отображения кнопки
+     */
+    skin?: OneTapSkin;
+    /**
+     * Список внешних сервисов авторизации
+     */
+    oauthList?: OAuthName[];
+    /**
+     * Тип отображаемого контента
+     */
+    contentId?: OneTapContentId;
+    /**
+     * Отображение состояния кнопки "Продолжить как"
+     * @defaultValue `true`
+     */
+    fastAuthEnabled?: boolean;
+}
+export interface OneTapBridgeFullAuthParams {
+    uuid: string;
+    screen?: string;
+    sdk_oauth?: OAuthName;
+}
+type OneTapBridgeParams = OneTapBridgeFullAuthParams | RedirectPayload;
+type OneTapEvents = OneTapInternalEvents | WidgetEvents;
+export type OneTapBridgeMessage = BridgeMessage<OneTapEvents, OneTapBridgeParams>;
+export {};
