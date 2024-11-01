@@ -1,3 +1,5 @@
+console.time('Время выполнения');
+
 import dotenv from 'dotenv';
 import axios from 'axios';
 import pLimit from 'p-limit';
@@ -26,7 +28,7 @@ const api = axios.create({
     params: {
         v: '5.131',
     },
-}); 
+});
 
 async function fetchWithRetries(method, params, retries = 0) {
     try {
@@ -126,7 +128,6 @@ function countOccurrences(text, word) {
 }
 
 async function main() {
-    console.time('Время выполнения');
     let envelopeCount = 0;
 
     try {
@@ -149,12 +150,12 @@ async function main() {
         const results = await Promise.all(postPromises);
         envelopeCount = results.reduce((acc, curr) => acc + curr, 0);
 
-        console.log(`\nКоличество "энвилоуп" в комментариях: ${envelopeCount}`);
+        console.log(`\nКоличество "${TARGET_WORD}" в комментариях: ${envelopeCount}`);
     } catch (error) {
         console.error(`Произошла ошибка: ${error.message}`);
     }
-
-    console.timeEnd('Время выполнения');
 }
 
-main();
+main().then(() => {
+    console.timeEnd('Время выполнения');
+});
