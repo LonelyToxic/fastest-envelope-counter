@@ -1,10 +1,7 @@
-{
+{ "type": "module",
   "dependencies": {
-    "@vkid/sdk": "^2.4.0",
     "axios": "^1.7.7",
     "dotenv": "^16.4.5",
-    "type": "module",
     "p-limit": "^6.1.0"
-    
   }
 }
