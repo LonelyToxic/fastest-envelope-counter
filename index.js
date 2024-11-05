@@ -12,7 +12,7 @@ const TARGET_WORD = 'энвилоуп';
 const WALL_COUNT = 1100;
 const COMMENTS_COUNT = 700;
 const MAX_RETRIES = 5;
-const CONCURRENT_REQUESTS = 50;
+const CONCURRENT_REQUESTS = 20;
 
 if (!ACCESS_TOKEN) {
     console.error('Ошибка: ACCESS_TOKEN не установлен в переменных окружения.');
