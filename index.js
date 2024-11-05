@@ -10,9 +10,9 @@ const ACCESS_TOKEN = process.env.ACCESS_TOKEN;
 const GROUP_ID = -218375169;
 const TARGET_WORD = 'энвилоуп';
 const WALL_COUNT = 1100;
-const COMMENTS_COUNT = 100;
+const COMMENTS_COUNT = 700;
 const MAX_RETRIES = 5;
-const CONCURRENT_REQUESTS = 20;
+const CONCURRENT_REQUESTS = 50;
 
 if (!ACCESS_TOKEN) {
     console.error('Ошибка: ACCESS_TOKEN не установлен в переменных окружения.');
